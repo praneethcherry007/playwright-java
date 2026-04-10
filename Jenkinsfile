@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building project...'
-                sh 'mvn clean install'  // For Maven
+                bat 'mvn clean install'  // For Maven
                 // sh 'gradle build'     // For Gradle
                 // sh 'npm install'      // For Node.js
             }
@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
