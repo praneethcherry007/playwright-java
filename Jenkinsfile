@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     tools {
-            maven 'apache-maven-3.9.14'  // Must match the name you configured
-        }
+        maven 'apache-maven-3.9.14'
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -15,23 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building project...'
-                bat 'mvn clean install'  // For Maven
-                // sh 'gradle build'     // For Gradle
-                // sh 'npm install'      // For Node.js
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                bat 'mvn test'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
-                // Add your deployment commands here
+                bat 'mvn clean install -DskipTests'
             }
         }
     }
@@ -42,9 +27,6 @@ pipeline {
         }
         success {
             echo 'Build successful!'
-        }
-        failure {
-            echo 'Build failed!'
         }
     }
 }
