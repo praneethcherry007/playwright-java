@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="PlaywrightTestSuite" verbose="1">
+    <listeners>
+        <listener class-name="com.qa.opencart.listeners.ExtentTestNGListener"/>
+    </listeners>
+    <!-- Test groups will go here -->
+    <test name="OpenCartTests">
+        <classes>
+            <class name="com.qa.opencart.tests.HomePageTest"/>
+            <!-- Add other POM-based tests here if they exist -->
+        </classes>
+    </test>
+    <test name="OtherTests">
+        <classes>
+            <class name="LoginTest"/>
+            <class name="LocatorTest"/>
+            <class name="BrowserContextConcept"/>
+            <!-- Add any additional test classes -->
+        </classes>
+    </test>
+</suite>
